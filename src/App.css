@@ -1,38 +1,93 @@
-.App {
-  text-align: center;
+body{
+  background-color: #F0EBCE;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.background{
+    object-fit: cover;
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -1;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.container{
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
-
-.App-link {
-  color: #61dafb;
+.search{
+    width: 100%;
+    padding: 10px 20px;
+    background-color: transparent;
+    font-size: 16px;
+    line-height: 18px;
+    color: #181818;
+    margin-left: 0px;
+    box-shadow: inset 0px 0px 0px 4px #ddd6e8;
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.icon{
+  width: 32px;
+}
+form{
+  display: flex;
+}
+button{
+  margin-left: 3px;
+}
+.card{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  border-bottom: 1px solid #3C4048 ;
+  padding: 10px;
+}
+.foodImage{
+  width: 200px;
+}
+.foodImage:hover{
+  width: 300px;
+  transition: 1s ease;
+}
+.list{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  font-weight: bolder;
+}
+ul{
+  list-style-type: square;
+  padding: 4px;
+}
+p{
+  font-weight: 600;
+}
+span{
+  font-weight: 800;
+}
+h2, p, ul, h3, input {
+  font-family: 'Montserrat', sans-serif;
+}
+h3{
+  font-weight: 22px;
+}
+h1{
+  font-family: 'Montserrat', sans-serif;
+}
+.btn{
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+.button{
+  padding: 10px;
+  margin-left: 12px;
+  margin-right: 12px;
+  border: none;
+  font-size: 14px;
+  line-height: 18px;
+  color: #181818;
+  box-shadow: inset 0px 0px 0px 4px #ddd6e8;
+}
+.button:hover{
+  font-weight: bolder;
 }
