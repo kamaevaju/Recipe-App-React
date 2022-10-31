@@ -1,4 +1,4 @@
-function Button({filteredFood}){
+function Button({filteredFood, healthLabels}){
     return(
         <div className='btn'>
             <button className="button" onClick={() => filteredFood('Vegeterian')}>Vegetarian</button>

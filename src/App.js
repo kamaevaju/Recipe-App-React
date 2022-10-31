@@ -46,9 +46,9 @@ function App() {
     setWordSubmitted(mySearch);
   }
 
-const chosenFood = (searchTerm) =>{
-  const newFood = myFood.filter( item => item.searchTerm === searchTerm);
-  setMyFood(newFood)
+  const chosenFood = (searchTerm) =>{
+    const newFood = myFood.filter( item => item.searchTerm === searchTerm);
+    setMyFood(newFood);
 }
 
   return (
@@ -77,9 +77,17 @@ const chosenFood = (searchTerm) =>{
             label={element.recipe.label}
             image={element.recipe.image}
             ingredients={element.recipe.ingredientLines}
-            calories={element.recipe.calories} />
+            calories={element.recipe.calories} 
+          />
         ))}       
       </div>
+      
+      <div>
+        {myFood.map((item, index) => (
+          <Button 
+            healthLabels={item.recipe.healthLabels} />
+        ))}
+      </div>   
 
     </div>
   );
