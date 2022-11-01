@@ -21,21 +21,22 @@ function App() {
     const getFunction = async () =>{
       const response = await fetch(`https://api.edamam.com/api/recipes/v2?type=public&q=${wordSubmitted}&app_id=${MY_ID}&app_key=${MY_KEY}`);
       const data = await response.json();
-      setMyRecipies(data.hits);
-      setMyFood(data.hits[0].recipe.healthLabels);    
+      setMyRecipies(data.hits); 
+      console.log(data.hits) 
+      setMyFood(data.hits); 
     }  
     getFunction();    
   }, [wordSubmitted]);
 
-  useEffect(() =>{
+ {/* useEffect(() =>{
     const chooseFood = async () =>{
       const response = await fetch(`https://api.edamam.com/api/recipes/v2?type=public&q=${wordSubmitted}&app_id=${MY_ID}&app_key=${MY_KEY}`);
       const data = await response.json();
       console.log(data.hits[0].recipe.healthLabels);
-      setMyFood(data.hits[0].recipe.healthLabels); 
+      setMyFood(data.hits); 
     }
     chooseFood()
-  }, [])
+  }, [])  */}
 
   const myRecipeSearch = (e) =>{
     setMySearch(e.target.value);
@@ -47,7 +48,7 @@ function App() {
   }
 
   const chosenFood = (searchTerm) =>{
-    const newFood = myFood.filter( item => item.searchTerm === searchTerm);
+    const newFood = myFood.filter( item => item.recipe.healthLabels === searchTerm);
     setMyFood(newFood);
 }
 
@@ -78,13 +79,14 @@ function App() {
             image={element.recipe.image}
             ingredients={element.recipe.ingredientLines}
             calories={element.recipe.calories} 
-          />
+            />
         ))}       
       </div>
       
       <div>
         {myFood.map((item, index) => (
           <Button 
+            key={index}
             healthLabels={item.recipe.healthLabels} />
         ))}
       </div>   
