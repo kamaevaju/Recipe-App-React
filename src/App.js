@@ -1,6 +1,6 @@
 import './App.css';
-import {useState} from 'react';
-import {useEffect} from 'react';
+import { useState } from 'react';
+import { useEffect } from 'react';
 import icon from './search.png';
 import Recipe from './Recipe';
 import background from './background.jpg';
@@ -28,16 +28,6 @@ function App() {
     getFunction();    
   }, [wordSubmitted]);
 
- {/* useEffect(() =>{
-    const chooseFood = async () =>{
-      const response = await fetch(`https://api.edamam.com/api/recipes/v2?type=public&q=${wordSubmitted}&app_id=${MY_ID}&app_key=${MY_KEY}`);
-      const data = await response.json();
-      console.log(data.hits[0].recipe.healthLabels);
-      setMyFood(data.hits); 
-    }
-    chooseFood()
-  }, [])  */}
-
   const myRecipeSearch = (e) =>{
     setMySearch(e.target.value);
   }
@@ -48,8 +38,15 @@ function App() {
   }
 
   const chosenFood = (searchTerm) =>{
-    const newFood = myFood.filter( item => item.recipe.healthLabels === searchTerm);
-    setMyFood(newFood);
+    const healthLabels = []
+    myRecipies.forEach(item => {
+      item.recipe.healthLabels.forEach(label => {
+        if(label === searchTerm) {
+          healthLabels.push(item)
+        }
+      })
+    })
+    setMyFood(healthLabels)
 }
 
   return (
@@ -73,7 +70,7 @@ function App() {
       </div>
 
       <div>
-        {myRecipies.map((element, index) =>(   
+        {myFood.map((element, index) =>(   
           <Recipe key={index} 
             label={element.recipe.label}
             image={element.recipe.image}
@@ -87,9 +84,9 @@ function App() {
         {myFood.map((item, index) => (
           <Button 
             key={index}
-            healthLabels={item.recipe.healthLabels} />
+            />
         ))}
-      </div>   
+        </div> 
 
     </div>
   );

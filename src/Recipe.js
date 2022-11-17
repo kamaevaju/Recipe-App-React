@@ -1,4 +1,6 @@
+
 function Recipe({label, image, ingredients, calories}){
+
     return(
         <div className='card'>
             <div className="container">
