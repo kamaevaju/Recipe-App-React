@@ -80,13 +80,7 @@ function App() {
         ))}       
       </div>
       
-      <div>
-        {myFood.map((item, index) => (
-          <Button 
-            key={index}
-            />
-        ))}
-        </div> 
+     
 
     </div>
   );
